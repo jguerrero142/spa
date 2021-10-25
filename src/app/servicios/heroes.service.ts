@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Heroes } from '../models/heroes';
 import { Observable } from 'rxjs';
-
+// import { WebsocketService } from './websocket.service';
 
 
 @Injectable({
@@ -10,10 +10,22 @@ import { Observable } from 'rxjs';
 })
 export class HeroesService {
 
+  
+
   API_URI = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {
   }
+    
+    // senMessage(mensaje: string){
+    //   const payload = {
+    //     de: 'fernando',
+    //     cuerpo: mensaje
+    //   };
+    //   this.wsService.emit('mensaje', payload);
+    // }
+
+
     getHeroes(){
       return this.http.get(`${this.API_URI}/heroes`);
     }
